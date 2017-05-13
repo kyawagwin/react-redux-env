@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router';
+import { ConnectedRouter } from 'react-router-redux';
 
+import history from './history';
 import BlogContainer from './containers/blog_container';
+import About from './components/about';
 
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <ConnectedRouter history={history}>
+        <div>
+          <Route exact path="/" component={BlogContainer} />
+          <Route path="/about" component={About} />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <BlogContainer />
-      </div>
+      </ConnectedRouter>
     );
   }
 }
