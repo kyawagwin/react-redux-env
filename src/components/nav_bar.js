@@ -33,6 +33,24 @@ export default class NavBar extends Component {
             </Menu.Item>
 
             <Menu.Item
+              name='gif'
+              to="/gif"
+              active={activeMenuItem === 'gif'}
+              onClick={this.handleMenuItemClick}
+            >
+              gif
+            </Menu.Item>
+
+            <Menu.Item
+              name='blog'
+              to="/blog"
+              active={activeMenuItem === 'blog'}
+              onClick={this.handleMenuItemClick}
+            >
+              Blog
+            </Menu.Item>
+
+            <Menu.Item
               name='about'
               to="/about"
               active={activeMenuItem === 'about'}
