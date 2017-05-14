@@ -1,4 +1,5 @@
 import React from 'react';
+import { Input, Button, Form, Divider } from 'semantic-ui-react';
 
 export default class Blog extends React.Component {
   constructor() {
@@ -23,42 +24,28 @@ export default class Blog extends React.Component {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="row">
-            <div className="col-sm-4 col-md-2">
-              <b>Title:</b>
-            </div>
-            <div className="col-sm-8 col-md-10">
-              <input
-                type="text"
-                value={this.state.title}
-                onChange={e => this.setState({ title: e.target.value })}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-4 col-md-2">
-              <b>Content:</b>
-            </div>
-            <div className="col-sm-8 col-md-10">
-              <input
-                type="text"
-                value={this.state.content}
-                onChange={e => this.setState({ content: e.target.value })}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-4 col-md-2">
-              <button
-                type="submit"
-                className="btn btn-primary"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </form>
+        <Form>
+          <Form.Field>
+            <label>Title</label>
+            <Input
+              type="text"
+              value={this.state.title}
+              onChange={e => this.setState({ title: e.target.value })}
+          />
+          </Form.Field>
+          <Form.Field>
+            <label>Content</label>
+            <Input
+              type="text"
+              value={this.state.content}
+              onChange={e => this.setState({ content: e.target.value })}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Button onClick={ this.onSubmit }>Submit</Button>
+          </Form.Field>
+        </Form>
+        <Divider />
         {
           blogs && blogs.length > 0 ? (
             blogs.map((blog) => {
